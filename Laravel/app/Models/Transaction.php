@@ -12,12 +12,17 @@ class Transaction extends Model
 
     public function from(): BelongsTo
     {
-        return $this->belongsTo(ContiCorrenti::class);
+        return $this->belongsTo(ContiCorrenti::class, 'from', 'id');
     }
 
     public function to(): BelongsTo
     {
-        return $this->belongsTo(ContiCorrenti::class);
+        return $this->belongsTo(ContiCorrenti::class, 'to', 'id');
+    }
+
+    public function type(): BelongsTo
+    {
+        return $this->belongsTo(TransactionType::class, 'type', 'id');
     }
 
     protected $fillable = [
@@ -25,6 +30,7 @@ class Transaction extends Model
         'from',
         'value',
         'reason',
-        'fee'
+        'fee',
+        'type'
     ];
 }

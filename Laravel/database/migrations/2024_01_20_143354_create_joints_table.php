@@ -11,10 +11,12 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('conti_correntis', function (Blueprint $table) {
+        Schema::create('joints', function (Blueprint $table) {
             $table->id();
-            $table->bigInteger('owner');
-            $table->foreign('owner')->references('id')->on('users');
+            $table->bigInteger('user_id');
+            $table->foreign('user_id')->references('id')->on('users');
+            $table->bigInteger('conti_correntis_id');
+            $table->foreign('conti_correntis_id')->references('id')->on('conti_correntis');
             $table->timestamps();
         });
     }
@@ -24,6 +26,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('conti_correntis');
+        Schema::dropIfExists('joints');
     }
 };

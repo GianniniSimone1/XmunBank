@@ -13,8 +13,10 @@ return new class extends Migration
     {
         Schema::create('transactions', function (Blueprint $table) {
             $table->id();
+            $table->bigInteger('from');
             $table->foreign('from')->references('id')->on('conti_correntis');
             $table->double('value');
+            $table->bigInteger('to');
             $table->foreign('to')->references('id')->on('conti_correntis');
             $table->double('fee');
             $table->string('reason', 180)->nullable();
