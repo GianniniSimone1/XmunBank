@@ -13,7 +13,7 @@ return new class extends Migration
     {
         Schema::create('conti_correntis', function (Blueprint $table) {
             $table->id();
-            $table->bigInteger('owner');
+            $table->bigInteger('owner')->unsigned();
             $table->foreign('owner')->references('id')->on('users');
             $table->timestamps();
         });

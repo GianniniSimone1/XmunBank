@@ -18,7 +18,7 @@ return new class extends Migration
         });
 
         Schema::table('transactions', function (Blueprint $table) {
-            $table->bigInteger('type');
+            $table->bigInteger('type')->unsigned();
             $table->foreign('type')->references('id')->on('transactions_type');
         });
     }

@@ -29,7 +29,7 @@ class ContiCorrenti extends Model
 
     public function joints(): BelongsToMany
     {
-        return $this->belongsToMany(User::class, 'joints');
+        return $this->belongsToMany(User::class, 'joints', 'conti_correntis_id', 'user_id');
     }
 
     protected $fillable = [

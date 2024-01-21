@@ -53,7 +53,7 @@ class User extends Authenticatable
 
     public function contiCorrentiManaged(): BelongsToMany
     {
-        return $this->belongsToMany(ContiCorrenti::class, 'joints');
+        return $this->belongsToMany(ContiCorrenti::class, 'joints', 'user_id', 'conti_correntis_id');
     }
 
 
