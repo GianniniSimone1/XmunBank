@@ -14,7 +14,7 @@ class ContiCorrenti extends Model
 
     public function owner(): BelongsTo
     {
-        return $this->belongsTo(User::class, 'owner');
+        return $this->belongsTo(User::class, 'owner')->select(['nome', 'cognome']);
     }
 
     public function transactionsFrom(): HasMany

@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Models\ContiCorrenti;
+use App\Models\User;
+use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
 
 class ContiCorrentiController extends Controller
@@ -10,9 +12,11 @@ class ContiCorrentiController extends Controller
     /**
      * Display a listing of the resource.
      */
-    public function index()
+    public function index(Request $request)
     {
-        //
+        $user = $request->user();
+        return response()->json($user->contiCorrentiManaged());
+
     }
 
     /**

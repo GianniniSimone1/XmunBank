@@ -16,9 +16,16 @@ use Illuminate\Support\Facades\Route;
 */
 Route::prefix('v1')->group(function () {
     Route::post('/register', [AuthController::class, 'register']);
+    Route::post('/login', [AuthController::class, 'login']);
    Route::middleware('auth:sanctum')->group(function () {
-
+       //ContiCorrente
+       Route::prefix('accounts')->group(function () {
+           Route::get('/contiCorrente', [\App\Http\Controllers\ContiCorrentiController::class, 'index']);
+       });
    });
+
+
+
     Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
         return $request->user();
     });

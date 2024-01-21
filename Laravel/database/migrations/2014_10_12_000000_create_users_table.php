@@ -16,7 +16,6 @@ return new class extends Migration
             $table->string('nome');
             $table->string('cognome');
             $table->string('email')->unique();
-            $table->string('id_card', 50);
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
             $table->rememberToken();
