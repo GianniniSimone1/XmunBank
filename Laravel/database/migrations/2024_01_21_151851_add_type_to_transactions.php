@@ -11,10 +11,9 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('transaction_types', function (Blueprint $table) {
-            $table->id();
-            $table->timestamps();
-            $table->string("type", 50);
+        Schema::table('transactions', function (Blueprint $table) {
+            $table->bigInteger('type')->unsigned();
+            $table->foreign('type')->references('id')->on('transaction_types');
         });
     }
 
@@ -23,6 +22,9 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('transaction_types');
+        Schema::table('transactions', function (Blueprint $table) {
+            $table->dropForeign(['type']);
+            $table->dropColumn('type');
+        });
     }
 };
