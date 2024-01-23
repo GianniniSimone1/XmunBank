@@ -25,22 +25,13 @@ class ContiCorrentiController extends Controller
     /**
      * Show the form for creating a new resource.
      */
-    public function create(Request $request)
+    public function create($owner)
     {
-        $request->validate([
-            'confirm' => 'required|boolean',
-            'password' => 'required|string',
-        ]);
-
-        if(AuthController::confermaOperazioneByPassword($request->user(), $request->password))
-        {
-            $newAccount = new ContiCorrenti();
-            $newAccount->owner = $request->user()->id;
-            $newAccount->save();
-            return response()->json([$newAccount, 'status' => 'ok']);
-        }
-        else
-        return response()->json([ 'error' =>'Password errata' ], 401);
+        $newAccount = new ContiCorrenti();
+        $newAccount->owner = $owner;
+        $newAccount->save();
+        $newAccount->append(['iban', 'owner_name', 'balance']);
+        return $newAccount;
     }
 
     /**
@@ -83,6 +74,26 @@ class ContiCorrentiController extends Controller
         //
     }
 
+    public function apiCreateAccount(Request $request)
+    {
+        $request->validate([
+            'confirm' => 'required|boolean',
+            'password' => 'required|string',
+        ]);
+
+        if(AuthController::confermaOperazioneByPassword($request->user(), $request->password))
+        {
+            // Verifica se l'utente ha già creato due istanze di ContoCorrente
+            if ($request->user()->conticorrenteOwner()->count() >= 2) {
+                return response()->json(['message' => 'Hai già creato il numero massimo di conti correnti.'], 403);
+            }
+            $newAccount = $this->create($request->user()->id);
+            return response()->json([$newAccount, 'status' => 'ok']);
+        }
+        else
+            return response()->json([ 'message' =>'Password errata' ], 401);
+    }
+
     public function addJoint(Request $request)
     {
         $request->validate([
@@ -97,7 +108,7 @@ class ContiCorrentiController extends Controller
         $user = $request->user();
         $contoCorrente = ContiCorrenti::find($request->contoCorrenteId);
         if(!$this->isOwner($user->id, $request->contoCorrenteId))
-            return response()->json([ 'error' => 'Non hai le autorizzazioni' ], 401);
+            return response()->json([ 'message' => 'Non hai le autorizzazioni' ], 401);
 
         $joiner = User::firstWhere('email', $request->email);
 
@@ -105,7 +116,7 @@ class ContiCorrentiController extends Controller
         return response()->json([ 'status' => 'ok' ]);
     }
 
-    public function isOwner($userId, $contoCorrenteId)
+    public static function isOwner($userId, $contoCorrenteId)
     {
         $contoCorrente = ContiCorrenti::find($contoCorrenteId);
         if(!$contoCorrente)
@@ -115,4 +126,9 @@ class ContiCorrentiController extends Controller
         else
             return false;
     }
+    public static function getAccountIdByIban($iban)
+    {
+        return (int) substr($iban, 5);
+    }
+
 }

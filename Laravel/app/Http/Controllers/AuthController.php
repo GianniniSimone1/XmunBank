@@ -54,7 +54,7 @@ class AuthController extends Controller
 
         // Autenticazione fallita
         return response()->json([
-            'error' => ['Le credenziali non sono corrette.'],
+            'message' => ['Le credenziali non sono corrette.'],
         ], 401);
     }
 

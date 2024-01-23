@@ -21,8 +21,13 @@ Route::prefix('v1')->group(function () {
        //ContiCorrente
        Route::prefix('accounts')->group(function () {
            Route::get('/', [\App\Http\Controllers\ContiCorrentiController::class, 'index']);
-           Route::post('/', [\App\Http\Controllers\ContiCorrentiController::class, 'create']);
+           Route::post('/', [\App\Http\Controllers\ContiCorrentiController::class, 'apiCreateAccount']);
            Route::post('/addJoint', [\App\Http\Controllers\ContiCorrentiController::class, 'addJoint']);
+       });
+       Route::prefix('transaction')->group(function () {
+           Route::get('/all', [\App\Http\Controllers\TransactionController::class, 'apiGetAllTransactionsByAccount']);
+           Route::get('/', [\App\Http\Controllers\TransactionController::class, 'apiGetTransactionById']);
+           Route::post('/make', [\App\Http\Controllers\TransactionController::class, 'apiMakeTransaction']);
        });
    });
 

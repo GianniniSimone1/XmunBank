@@ -25,6 +25,22 @@ class Transaction extends Model
         return $this->belongsTo(TransactionType::class, 'type', 'id');
     }
 
+    public function getFromAttribute()
+    {
+        return $this->from()->select(['id', 'owner_name', 'iban'])->first();
+    }
+
+    public function getToAttribute()
+    {
+        return $this->to()->select(['id', 'owner_name', 'iban'])->first();
+    }
+
+    public function getTypeAttribute(): string
+    {
+       return $this->type()->type;
+    }
+
+
     protected $fillable = [
         'to',
         'from',
