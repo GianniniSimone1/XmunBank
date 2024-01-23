@@ -20,7 +20,8 @@ class ContiCorrenti extends Model
 
     public function getOwnerNameAttribute(): string
     {
-        return $this->owner()->cognome . ' ' . $this->owner()->nome;
+        $o = $this->owner()->first();
+        return $o->cognome . ' ' . $o->nome;
     }
 
     public function owner(): BelongsTo

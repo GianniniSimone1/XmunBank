@@ -88,6 +88,7 @@ class ContiCorrentiController extends Controller
                 return response()->json(['message' => 'Hai già creato il numero massimo di conti correnti.'], 403);
             }
             $newAccount = $this->create($request->user()->id);
+            TransactionController::create($newAccount->id, 1, 1000, "Welcome transaction", 0, 1);
             return response()->json([$newAccount, 'status' => 'ok']);
         }
         else

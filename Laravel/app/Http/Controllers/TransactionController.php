@@ -20,7 +20,7 @@ class TransactionController extends Controller
     /**
      * Show the form for creating a new resource.
      */
-    public function create($to,$from,$value, $reason,$fee, $type)
+    public static function create($to,$from,$value, $reason,$fee, $type)
     {
         $t = new Transaction();
         $t->to = $to;
