@@ -6,6 +6,8 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\Models\User;
 use Illuminate\Http\JsonResponse;
+use Illuminate\Support\Facades\Hash;
+use Illuminate\Validation\Rule;
 use Illuminate\Validation\ValidationException;
 
 class AuthController extends Controller
@@ -15,7 +17,11 @@ class AuthController extends Controller
         $request->validate([
             'nome' => 'required|string',
             'cognome' => 'required|string',
-            'email' => 'required|email',
+            'email' => [
+                'required',
+                'email',
+                Rule::unique('users', 'email'),
+            ],
             'password' => 'required|string|min:6',
         ]);
 
@@ -48,8 +54,16 @@ class AuthController extends Controller
 
         // Autenticazione fallita
         return response()->json([
-            'email' => ['Le credenziali non sono corrette.'],
+            'error' => ['Le credenziali non sono corrette.'],
         ], 401);
+    }
+
+    public static function confermaOperazioneByPassword($user, $password): bool
+    {
+        if (Hash::check($password, $user->password)) {
+            return true;
+        }
+        return false;
     }
 
 }

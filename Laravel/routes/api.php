@@ -20,7 +20,9 @@ Route::prefix('v1')->group(function () {
    Route::middleware('auth:sanctum')->group(function () {
        //ContiCorrente
        Route::prefix('accounts')->group(function () {
-           Route::get('/contiCorrente', [\App\Http\Controllers\ContiCorrentiController::class, 'index']);
+           Route::get('/', [\App\Http\Controllers\ContiCorrentiController::class, 'index']);
+           Route::post('/', [\App\Http\Controllers\ContiCorrentiController::class, 'create']);
+           Route::post('/addJoint', [\App\Http\Controllers\ContiCorrentiController::class, 'addJoint']);
        });
    });
 

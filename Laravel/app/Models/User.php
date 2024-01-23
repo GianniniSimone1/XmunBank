@@ -57,5 +57,4 @@ class User extends Authenticatable
         return $this->belongsToMany(ContiCorrenti::class, 'joints', 'user_id', 'conti_correntis_id');
     }
 
-
 }
