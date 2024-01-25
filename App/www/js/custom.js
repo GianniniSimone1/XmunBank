@@ -1,8 +1,23 @@
-// Aggiungi il gestore di eventi per il form di accesso
+const apiUrl = '/api/v1'
+
+
 $(document).on('submit', '#loginForm', function (e) {
     e.preventDefault();
     // Aggiungi qui la logica di gestione della sottomissione del form
     var formData = $(this).serializeArray();
-    alert('Well done');
-    // Esegui le azioni necessarie, ad esempio invia una richiesta AJAX di accesso
+    console.log(formData);
+
+    app.preloader.show();
+    $.post({
+        url: server +  apiUrl + '/login',
+        data: formData,
+        success: function (data) {
+            app.preloader.hide();
+            localStorage.setItem('token', data);
+        },
+        error: function (error) {
+            app.preloader.hide();
+            app.dialog.alert(JSON.stringify(error.responseJSON.message));
+        }
+    });
 });

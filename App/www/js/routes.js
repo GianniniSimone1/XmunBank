@@ -8,5 +8,10 @@ var routes = [
     path: '/login/',
     url: './pages/login.html',
     name: 'login',
+  },
+  {
+    path: '/register/',
+    url: './pages/register.html',
+    name: 'register',
   }
 ];

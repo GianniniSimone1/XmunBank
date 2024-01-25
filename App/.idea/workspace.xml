@@ -5,83 +5,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="ac4bdad3-4498-40f8-b9ea-71ed9d666ebf" name="Changes" comment="Creata App e aggiunta pagina accedi">
-      <change afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/App.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assets-src/apple-touch-icon.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assets-src/web-icon.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/framework7.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/www/assets/icons/128x128.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/www/assets/icons/144x144.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/www/assets/icons/152x152.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/www/assets/icons/192x192.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/www/assets/icons/256x256.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/www/assets/icons/512x512.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/www/assets/icons/apple-touch-icon.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/www/assets/icons/favicon.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/www/css/app.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/www/css/custom.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/www/css/icons.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/www/fonts/Framework7Icons-Regular.ttf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/www/fonts/Framework7Icons-Regular.woff" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/www/fonts/Framework7Icons-Regular.woff2" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/www/fonts/_mixins.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/www/fonts/_variables.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/www/fonts/filled.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/www/fonts/filled.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/www/fonts/material-icons-outlined.woff" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/www/fonts/material-icons-outlined.woff2" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/www/fonts/material-icons-round.woff" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/www/fonts/material-icons-round.woff2" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/www/fonts/material-icons-sharp.woff" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/www/fonts/material-icons-sharp.woff2" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/www/fonts/material-icons-two-tone.woff" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/www/fonts/material-icons-two-tone.woff2" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/www/fonts/material-icons.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/www/fonts/material-icons.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/www/fonts/material-icons.woff" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/www/fonts/material-icons.woff2" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/www/fonts/outlined.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/www/fonts/outlined.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/www/fonts/round.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/www/fonts/round.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/www/fonts/sharp.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/www/fonts/sharp.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/www/fonts/two-tone.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/www/fonts/two-tone.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/www/framework7/framework7-bundle-rtl.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/www/framework7/framework7-bundle-rtl.min.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/www/framework7/framework7-bundle.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/www/framework7/framework7-bundle.esm.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/www/framework7/framework7-bundle.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/www/framework7/framework7-bundle.js.map" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/www/framework7/framework7-bundle.min.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/www/framework7/framework7-bundle.min.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/www/framework7/framework7-bundle.min.js.map" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/www/framework7/framework7-lite-bundle.esm.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/www/framework7/framework7-lite.esm.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/www/framework7/framework7-lite.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/www/framework7/framework7-rtl.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/www/framework7/framework7-rtl.min.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/www/framework7/framework7.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/www/framework7/framework7.esm.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/www/framework7/framework7.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/www/framework7/framework7.min.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/www/index.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/www/js/app.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/www/js/custom.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/www/js/jquery.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/www/js/routes.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/www/js/store.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/www/manifest.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/www/pages/login.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/www/service-worker.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/www/pages/register.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/www/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/www/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/www/js/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/www/js/app.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/www/js/custom.js" beforeDir="false" afterPath="$PROJECT_DIR$/www/js/custom.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/www/js/routes.js" beforeDir="false" afterPath="$PROJECT_DIR$/www/js/routes.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -96,6 +25,7 @@
       <list>
         <option value="JavaScript File" />
         <option value="CSS File" />
+        <option value="HTML File" />
       </list>
     </option>
   </component>
@@ -111,9 +41,9 @@
     <option name="stateVersion" value="1" />
   </component>
   <component name="PhpWorkspaceProjectConfiguration" interpreter_name="PHP 8.3" />
-  <component name="ProjectColorInfo"><![CDATA[{
-  "associatedIndex": 6
-}]]></component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 6
+}</component>
   <component name="ProjectId" id="2bQFutG3wBYFqHufI0SuW2K7hid" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
@@ -121,9 +51,11 @@
   </component>
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
+    "DefaultHtmlFileTemplate": "HTML File",
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "git-widget-placeholder": "main",
+    "last_opened_file_path": "/home/unicorn/Documenti/XmunBank/Laravel",
     "list.type.of.created.stylesheet": "CSS",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
@@ -148,8 +80,18 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1706139621895</updated>
-      <workItem from="1706139623221" duration="5566000" />
+      <workItem from="1706139623221" duration="6066000" />
+      <workItem from="1706188252938" duration="5405000" />
     </task>
+    <task id="LOCAL-00001" summary="Creata App e aggiunta pagina accedi">
+      <option name="closed" value="true" />
+      <created>1706145603373</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1706145603373</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
