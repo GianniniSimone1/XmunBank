@@ -16,9 +16,13 @@ class ContiCorrentiController extends Controller
      */
     public function index(Request $request)
     {
-        //TODO qui non funziona correttamente
-        $user = $request->user();
-        return response()->json(ContiCorrenti::where('owner', $user->id));
+       $user = $request->user();
+        $contiCreati = $user->conticorrenteOwner->append(['iban', 'owner_name', 'balance']);;
+        $contiJoint = $user->contiCorrentiManaged->append(['iban', 'owner_name', 'balance'])->makeHidden('pivot');;
+
+        //$allConti = $contiCreati->merge($contiJoint);
+
+        return response()->json([ 'owned' => $contiCreati, 'joined' => $contiJoint ]);
 
     }
 

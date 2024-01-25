@@ -58,6 +58,10 @@ class AuthController extends Controller
         ], 401);
     }
 
+    public function isValidToken(Request $request){
+        return;
+    }
+
     public static function confermaOperazioneByPassword($user, $password): bool
     {
         if (Hash::check($password, $user->password)) {

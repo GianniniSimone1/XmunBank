@@ -30,25 +30,33 @@
 </head>
 <body>
 <div id="app">
+  <div class="panel panel-left dark">
+    <div class="view">
+      <div class="page">
+        <div class="navbar">
+          <div class="navbar-bg"></div>
+          <div class="navbar-inner">
+            <div class="title">Profilo</div>
+          </div>
+        </div>
+        <div class="page-content">
+          <div class="block">Left panel content goes here</div>
+        </div>
+      </div>
+    </div>
+  </div>
   <!-- Your main view, should have "view-main" class -->
   <div class="view view-main view-init safe-areas">
-    <div class="page" data-name="home">
+    <div class="page" data-name="index" data-login=0>
       <!-- Scrollable page content -->
       <div class="page-content bg-color-white" style="overflow: hidden;">
         <div class="block" style="display: flex;flex-direction: column;justify-content: center;align-items: center;height: 100%;">
           <!-- Main Content -->
           <h1 class="text-align-center no-margin-vertical">Xmun Bank</h1>
-          <p class="text-align-center no-margin-vertical">I tuoi soldi al sicuro!</p>
+          <p class="text-align-center">I tuoi soldi al sicuro!</p>
           <!-- Button Row -->
-          <div class="row" style="width: 100%;">
-            <!-- Accedi Button -->
-            <div class="col margin-vertical">
-              <a href="/login/" class="button button-fill">Accedi</a>
-            </div>
-            <!-- Registrati Button -->
-            <div class="col margin-vertical">
-              <a href="/register/" class="button button-fill color-secondary">Registrati</a>
-            </div>
+          <div class="row text-align-center" style="width: 100%;">
+            <div class="preloader"></div>
           </div>
         </div>
       </div>

@@ -4,13 +4,19 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="ac4bdad3-4498-40f8-b9ea-71ed9d666ebf" name="Changes" comment="Creata App e aggiunta pagina accedi">
-      <change afterPath="$PROJECT_DIR$/www/pages/register.html" afterDir="false" />
+    <list default="true" id="ac4bdad3-4498-40f8-b9ea-71ed9d666ebf" name="Changes" comment="Creato Register e comunicazione con login e csrf token con il server">
+      <change afterPath="$PROJECT_DIR$/www/pages/home.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/www/pages/user/dashboard.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/www/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/www/index.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/www/js/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/www/js/app.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/www/js/custom.js" beforeDir="false" afterPath="$PROJECT_DIR$/www/js/custom.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/www/js/routes.js" beforeDir="false" afterPath="$PROJECT_DIR$/www/js/routes.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/www/pages/login.html" beforeDir="false" afterPath="$PROJECT_DIR$/www/pages/login.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/www/pages/register.html" beforeDir="false" afterPath="$PROJECT_DIR$/www/pages/register.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Laravel/app/Http/Controllers/AuthController.php" beforeDir="false" afterPath="$PROJECT_DIR$/../Laravel/app/Http/Controllers/AuthController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Laravel/app/Http/Controllers/ContiCorrentiController.php" beforeDir="false" afterPath="$PROJECT_DIR$/../Laravel/app/Http/Controllers/ContiCorrentiController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Laravel/routes/api.php" beforeDir="false" afterPath="$PROJECT_DIR$/../Laravel/routes/api.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -49,22 +55,22 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "DefaultHtmlFileTemplate": "HTML File",
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "git-widget-placeholder": "main",
-    "last_opened_file_path": "/home/unicorn/Documenti/XmunBank/Laravel",
-    "list.type.of.created.stylesheet": "CSS",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;DefaultHtmlFileTemplate&quot;: &quot;HTML File&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/home/unicorn/Documenti/XmunBank/Laravel&quot;,
+    &quot;list.type.of.created.stylesheet&quot;: &quot;CSS&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
@@ -81,7 +87,8 @@
       <option name="presentableId" value="Default" />
       <updated>1706139621895</updated>
       <workItem from="1706139623221" duration="6066000" />
-      <workItem from="1706188252938" duration="5405000" />
+      <workItem from="1706188252938" duration="5657000" />
+      <workItem from="1706208588350" duration="13113000" />
     </task>
     <task id="LOCAL-00001" summary="Creata App e aggiunta pagina accedi">
       <option name="closed" value="true" />
@@ -91,7 +98,15 @@
       <option name="project" value="LOCAL" />
       <updated>1706145603373</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="Creato Register e comunicazione con login e csrf token con il server">
+      <option name="closed" value="true" />
+      <created>1706195997226</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1706195997227</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -110,6 +125,7 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Creata App e aggiunta pagina accedi" />
-    <option name="LAST_COMMIT_MESSAGE" value="Creata App e aggiunta pagina accedi" />
+    <MESSAGE value="Creato Register e comunicazione con login e csrf token con il server" />
+    <option name="LAST_COMMIT_MESSAGE" value="Creato Register e comunicazione con login e csrf token con il server" />
   </component>
 </project>
