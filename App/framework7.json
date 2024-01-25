@@ -1,0 +1,18 @@
+{
+  "cwd": "/home/unicorn/Documenti/XmunBank/App",
+  "type": [
+    "pwa"
+  ],
+  "name": "XMun Bank",
+  "framework": "core",
+  "template": "blank",
+  "bundler": false,
+  "cssPreProcessor": false,
+  "theming": {
+    "customColor": true,
+    "color": "#bbff00",
+    "darkMode": true,
+    "iconFonts": true
+  },
+  "customBuild": false
+}
