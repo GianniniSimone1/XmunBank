@@ -7,6 +7,7 @@ use App\Models\User;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Log;
 use Illuminate\Validation\Rule;
 
 class ContiCorrentiController extends Controller
@@ -17,12 +18,12 @@ class ContiCorrentiController extends Controller
     public function index(Request $request)
     {
        $user = $request->user();
-        $contiCreati = $user->conticorrenteOwner->append(['iban', 'owner_name', 'balance']);;
-        $contiJoint = $user->contiCorrentiManaged->append(['iban', 'owner_name', 'balance'])->makeHidden('pivot');;
+        $contiCreati = $user->conticorrenteOwner->append(['iban', 'owner_name', 'balance']);
+        $contiJoint = $user->contiCorrentiManaged->append(['iban', 'owner_name', 'balance'])->makeHidden('pivot');
 
         //$allConti = $contiCreati->merge($contiJoint);
 
-        return response()->json([ 'owned' => $contiCreati, 'joined' => $contiJoint ]);
+        return response()->json([ 'owned' => $contiCreati, 'joined' => $contiJoint, 'count' => $contiJoint->count() + $contiCreati->count() ]);
 
     }
 
@@ -51,7 +52,10 @@ class ContiCorrentiController extends Controller
      */
     public function show(ContiCorrenti $contiCorrenti)
     {
-        //
+        $contiCorrenti->append(['iban', 'owner_name', 'balance', 'cointestatari'])->makeHidden(['owner', 'joints']);
+        $contiCorrenti->transactionsFrom = $contiCorrenti->transactionsFrom()->get()->makeHidden(['to', 'from', 'type'])->append(['toDetails', 'typeDetails']);
+        $contiCorrenti->transactionsTo = $contiCorrenti->transactionsTo()->get()->makeHidden(['to', 'from', 'type'])->append(['fromDetails', 'typeDetails']);
+        return $contiCorrenti;
     }
 
     /**
@@ -81,9 +85,13 @@ class ContiCorrentiController extends Controller
     public function apiCreateAccount(Request $request)
     {
         $request->validate([
-            'confirm' => 'required|boolean',
+            'confirm' => 'required',
             'password' => 'required|string',
+            'cointestatari' => 'string',
         ]);
+
+        if($request->confirm != "y")
+            return response()->json(['message' => 'Devi confermare l\'operazione'], 403);
 
         if(AuthController::confermaOperazioneByPassword($request->user(), $request->password))
         {
@@ -92,6 +100,21 @@ class ContiCorrentiController extends Controller
                 return response()->json(['message' => 'Hai già creato il numero massimo di conti correnti.'], 403);
             }
             $newAccount = $this->create($request->user()->id);
+
+            $emails = explode(',', $request->input('cointestatari'));
+
+            foreach ($emails as $email) {
+                $email = trim($email); // Rimuove eventuali spazi prima e dopo l'email
+
+                if ($email != $request->user()->email) {
+                    $userJ = User::where('email', $email)->first();
+
+                    if ($userJ) {
+                        $newAccount->joints()->attach($userJ->id);
+                    }
+                }
+            }
+
             TransactionController::create($newAccount->id, 1, 1000, "Welcome transaction", 0, 1);
             return response()->json([$newAccount, 'status' => 'ok']);
         }
@@ -134,6 +157,20 @@ class ContiCorrentiController extends Controller
     public static function getAccountIdByIban($iban)
     {
         return (int) substr($iban, 5);
+    }
+
+    public function apiGetContoById(Request $request)
+    {
+        $request->validate([
+            'contoCorrenteId' => ['required','integer', 'min:0','max:4294967295', Rule::exists('conti_correntis', 'id'),]
+        ]);
+
+        $account = ContiCorrenti::find($request->contoCorrenteId);
+        if(!$account->isOwnerOrJoint($request->user()->id))
+            return response()->json([ 'message' =>'Non hai le autorizzazioni' ], 401);
+        $account->isOwner = $account->owner === $request->user()->id;
+
+        return response()->json(['result' => $this->show($account)]);
     }
 
 }

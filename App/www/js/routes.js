@@ -22,5 +22,15 @@ var routes = [
     path: '/user/',
     url: './pages/user/dashboard.html',
     name: 'dashboard',
+  },
+  {
+    path: '/user/newConto',
+    url: './pages/user/newContoCorrente.html',
+    name: 'newConto',
+  },
+  {
+    path: '/user/conto/:contoId',
+    url: './pages/user/conto.html',
+    name: 'newConto',
   }
 ];

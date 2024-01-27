@@ -22,6 +22,7 @@ Route::prefix('v1')->group(function () {
        //ContiCorrente
        Route::prefix('accounts')->group(function () {
            Route::get('/', [\App\Http\Controllers\ContiCorrentiController::class, 'index']);
+           Route::get('/show', [\App\Http\Controllers\ContiCorrentiController::class, 'apiGetContoById']);
            Route::post('/', [\App\Http\Controllers\ContiCorrentiController::class, 'apiCreateAccount']);
            Route::post('/addJoint', [\App\Http\Controllers\ContiCorrentiController::class, 'addJoint']);
        });

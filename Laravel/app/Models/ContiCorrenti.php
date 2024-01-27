@@ -8,6 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 use Illuminate\Database\Eloquent\Relations\HasMany;
+use PhpParser\Node\Expr\Array_;
 
 class ContiCorrenti extends Model
 {
@@ -16,6 +17,13 @@ class ContiCorrenti extends Model
     public function getIbanAttribute(): string
     {
         return env('APP_NAME') . str_pad($this->id, 5, '0', STR_PAD_LEFT);
+    }
+
+    public function getSomeInfo(){
+        $r = [];
+        $r->id = $this->id;
+        $r->iban = $this->getIbanAttribute();
+        $r->owner_name = $this->getOwnerNameAttribute();
     }
 
     public function getOwnerNameAttribute(): string
@@ -44,9 +52,14 @@ class ContiCorrenti extends Model
         return $this->belongsToMany(User::class, 'joints', 'conti_correntis_id', 'user_id');
     }
 
+    public function getCointestatariAttribute()
+    {
+        return $this->joints()->select(['nome', 'cognome', 'email'])->get()->makeHidden(['pivot']);
+    }
+
     public function isOwnerOrJoint(int $userId): bool
     {
-        return $this->owner_id === $userId || $this->joints->contains('id', $userId);
+        return $this->owner === $userId || $this->joints->contains('id', $userId);
     }
 
     public function getBalanceAttribute()

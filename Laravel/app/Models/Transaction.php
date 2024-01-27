@@ -25,19 +25,21 @@ class Transaction extends Model
         return $this->belongsTo(TransactionType::class, 'type', 'id');
     }
 
-    public function getFromAttribute()
+    public function getFromDetailsAttribute()
     {
-        return $this->from()->select(['id', 'owner_name', 'iban'])->first();
+        $o = $this->from()->first();
+        return ['id' => $o->id, 'iban' => $o->iban, 'owner_name' => $o->owner_name];
     }
 
-    public function getToAttribute()
+    public function getToDetailsAttribute()
     {
-        return $this->to()->select(['id', 'owner_name', 'iban'])->first();
+        $o = $this->to()->first();
+        return ['id' => $o->id, 'iban' => $o->iban, 'owner_name' => $o->owner_name];
     }
 
-    public function getTypeAttribute(): string
+    public function getTypeDetailsAttribute(): string
     {
-       return $this->type()->type;
+       return $this->type()->first()->type;
     }
 
 
@@ -48,5 +50,9 @@ class Transaction extends Model
         'reason',
         'fee',
         'type'
+    ];
+
+    protected $casts = [
+        'created_at' => 'datetime'
     ];
 }

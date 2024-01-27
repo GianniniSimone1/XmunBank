@@ -1,0 +1,83 @@
+<!-- login.html -->
+<div class="page" data-name="conto">
+
+    <div class="navbar">
+        <div class="navbar-bg"></div>
+        <div class="navbar-inner">
+            <div class="left">
+                <a href="#" class="link back">
+                    <i class="icon icon-back"></i>
+                </a>
+            </div>
+            <div class="title">Conto</div>
+        </div>
+    </div>
+
+    <div class="page-content bg-color-white">
+        <div class="block-title">Informazioni conto corrente</div>
+        <div class="block block-strong-ios block-outline-ios">
+            <div class="grid grid-cols-2 conto">
+                <b>Proprietario: </b>
+                <div class="chip">
+                    <div class="chip-media bg-color-primary">
+                        <i class="icon f7-icons if-not-md">person</i>
+                        <i class="icon material-icons md-only">person</i>
+                    </div>
+                    <div class="chip-label owner_name"></div>
+                </div>
+            </div>
+            <div class="grid grid-cols-2 conto">
+                <b>IBAN: </b>
+                <div class="chip color-secondary">
+                    <div class="chip-label iban"></div>
+                </div>
+            </div>
+            <div class="grid grid-cols-2 conto">
+                <b>Saldo: </b>
+                <div class="chip color-green">
+                    <div class="chip-media bg-color-green">€</div>
+                    <div class="chip-label balance"></div>
+                </div>
+            </div>
+        </div>
+        <div class="block-title">Cointestatari</div>
+        <div class="block block-strong-ios block-outline-ios cointestatari">
+
+        </div>
+
+        <div class="block-title">Transazioni a tuo favore</div>
+        <div class="block block-strong-ios block-outline-ios">
+            <div class="data-table">
+                <table>
+                    <thead>
+                    <tr>
+                        <th class="label-cell">Causale</th>
+                        <th class="label-cell">Da</th>
+                        <th class="numeric-cell">Importo</th>
+                    </tr>
+                    </thead>
+                    <tbody id="tt">
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <div class="block-title">Transazioni eseguite</div>
+        <div class="block block-strong-ios block-outline-ios">
+            <div class="data-table">
+                <table>
+                    <thead>
+                    <tr>
+                        <th class="label-cell">Causale</th>
+                        <th class="label-cell">Da</th>
+                        <th class="numeric-cell">Fee</th>
+                        <th class="numeric-cell">Importo</th>
+                    </tr>
+                    </thead>
+                    <tbody id="ft">
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>

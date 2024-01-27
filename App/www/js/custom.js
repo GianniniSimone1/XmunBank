@@ -62,30 +62,136 @@ $$(document).on('page:init', '.page[data-name="dashboard"]', function (e) {
         },
         success: function (data) {
             app.preloader.hide()
-            $('#contiCorrentiSwiper').html('');
-            $.each(data.owned, function(index, element) {
-                $('#contiCorrentiSwiper').append(`
+            if(data.count === 0)
+                $('#contiCorrentiSwiper').html(`<swiper-slide> Non hai conti correnti</swiper-slide>`)
+            else
+            {
+                $('#contiCorrentiSwiper').html('');
+                $.each(data.owned, function (index, element) {
+                    $('#contiCorrentiSwiper').append(`
                     <swiper-slide>
-                        <div class="card card-outline bg-color-secondary owned">
-                            <div class="card-header">` + element.iban +`</div>
-                            <div class="card-content card-content-padding">Creato da: ` + element.owner_name +`</div>
-                            <div class="card-footer">` + element.balance +`€</div>
+                        <div class="card card-outline bg-color-secondary owned" data-id="` + element.id + `">
+                            <div class="card-header">` + element.iban + `</div>
+                            <div class="card-content card-content-padding">Creato da: <i>` + element.owner_name + `</i></div>
+                            <div class="card-footer">` + element.balance + `€</div>
                         </div>
                     </swiper-slide>
+                `)
+                });
+
+                $.each(data.joined, function (index, element) {
+                    $('#contiCorrentiSwiper').append(`
+                    <swiper-slide>
+                        <div class="card card-outline joined" data-id="` + element.id + `">
+                            <div class="card-header">` + element.iban + `</div>
+                            <div class="card-content card-content-padding">Creato da: <i>` + element.owner_name + `</i> - <b>Cointestato con te</b></div>
+                            <div class="card-footer">` + element.balance + `€</div>
+                        </div>
+                    </swiper-slide>
+                `)
+
+                    $$('.joined, .owned').on('click', function() {
+                        var contoId = $$(this).data('id');
+                        app.views.main.router.navigate('/user/conto/' + contoId + '/');
+                    });
+                });
+            }
+        },
+        error: function (error) {
+            app.preloader.hide()
+        }
+    });
+
+
+});
+
+$(document).on('submit', '#newContoForm', function (e) {
+    e.preventDefault();
+    var formData = $(this).serializeArray();
+    app.preloader.show();
+
+
+    $.post({
+        url: server +  apiUrl + '/accounts/',
+        data: formData,
+        headers: {
+            'Accept': 'application/json',
+            'Authorization': 'Bearer ' + localStorage.getItem('token')
+        },
+        success: function (data) {
+            app.preloader.hide();
+            app.views.main.router.navigate('/user/', {
+                clearPreviousHistory: true
+            });
+        },
+        error: function (error) {
+            app.preloader.hide();
+            app.dialog.alert(JSON.stringify(error.responseJSON.message));
+        }
+    });
+});
+
+
+
+$$(document).on('page:init', '.page[data-name="conto"]', function (e) {
+    e.preventDefault();
+    var page = e.detail;
+    app.preloader.show()
+    $.get({
+        url: server +  apiUrl + '/accounts/show',
+        data: { contoCorrenteId: page.route.params.contoId },
+        headers: {
+            'Accept': 'application/json',
+            'Authorization': 'Bearer ' + localStorage.getItem('token')
+        },
+        success: function (data) {
+            app.preloader.hide()
+            $$('.owner_name').html(data.result.owner_name)
+            $$('.balance').html(data.result.balance)
+            $$('.iban').html(data.result.iban)
+            if(data.result.cointestatari.length === 0)
+                $('.cointestatari').html(`Non ci sono cointestatari`)
+            else
+            $.each(data.result.cointestatari, function (index, element) {
+                $('.cointestatari').append(`
+                                    <div class="chip">
+          <div class="chip-media bg-color-primary">
+            <i class="icon f7-icons if-not-md">person</i>
+            <i class="icon material-icons md-only">person</i>
+          </div>
+          <div class="chip-label">` + element.nome + ' ' + element.cognome + `</div>
+        </div>
                 `)
             });
 
-            $.each(data.joined, function(index, element) {
-                $('#contiCorrentiSwiper').append(`
-                    <swiper-slide>
-                        <div class="card card-outline joined">
-                            <div class="card-header">` + element.iban +`</div>
-                            <div class="card-content card-content-padding">Creato da: ` + element.owner_name +` - Cointestato con te</div>
-                            <div class="card-footer">` + element.balance +`€</div>
-                        </div>
-                    </swiper-slide>
+
+            if(data.result.transactionsTo.length === 0)
+                $('#tt').html(`Non ci sono transazioni`)
+            else
+                $.each(data.result.transactionsTo, function (index, element) {
+                    $('#tt').append(`
+                                    <tr>
+                        <td class="label-cell">` + element.reason + `</td>
+                        <td class="label-cell">` + element.fromDetails.owner_name + `</td>
+                        <td class="numeric-cell text-color-green"> ` + element.value + `</td>
+                    </tr>
                 `)
-            });
+                });
+
+            if(data.result.transactionsFrom.length === 0)
+                $('#ft').html(`Non ci sono transazioni`)
+            else
+                $.each(data.result.transactionsFrom, function (index, element) {
+                    $('#ft').append(`
+                                    <tr>
+                        <td class="label-cell">` + element.reason + `</td>
+                        <td class="label-cell">` + element.toDetails.owner_name + `</td>
+                        <td class="numeric-cell text-color-red"> ` + element.fee + `</td>
+                        <td class="numeric-cell text-color-red"> ` + element.value + `</td>
+                    </tr>
+                `)
+                });
+
         },
         error: function (error) {
             app.preloader.hide()
