@@ -61,6 +61,9 @@ class AuthController extends Controller
     public function isValidToken(Request $request){
         return;
     }
+    public function deleteToken(Request $request){
+        $request->user()->tokens()->delete();
+    }
 
     public static function confermaOperazioneByPassword($user, $password): bool
     {

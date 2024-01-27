@@ -19,12 +19,6 @@ class ContiCorrenti extends Model
         return env('APP_NAME') . str_pad($this->id, 5, '0', STR_PAD_LEFT);
     }
 
-    public function getSomeInfo(){
-        $r = [];
-        $r->id = $this->id;
-        $r->iban = $this->getIbanAttribute();
-        $r->owner_name = $this->getOwnerNameAttribute();
-    }
 
     public function getOwnerNameAttribute(): string
     {
@@ -68,7 +62,7 @@ class ContiCorrenti extends Model
         $transactionsFromFee = $this->transactionsFrom()->sum('fee');
         $transactionsTo = $this->transactionsTo()->sum('value');
 
-        return 0 + $transactionsTo - $transactionsFrom - $transactionsFromFee;
+        return round(0 + $transactionsTo - $transactionsFrom - $transactionsFromFee, 2);
     }
 
     protected $hidden = ['created_at', 'updated_at'];

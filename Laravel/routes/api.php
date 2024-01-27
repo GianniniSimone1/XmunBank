@@ -19,6 +19,7 @@ Route::prefix('v1')->group(function () {
     Route::post('/login', [AuthController::class, 'login']);
    Route::middleware('auth:sanctum')->group(function () {
        Route::post('/token', [AuthController::class, 'isValidToken']);
+       Route::post('/deleteToken', [AuthController::class, 'deleteToken']);
        //ContiCorrente
        Route::prefix('accounts')->group(function () {
            Route::get('/', [\App\Http\Controllers\ContiCorrentiController::class, 'index']);

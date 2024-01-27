@@ -53,6 +53,8 @@ class Transaction extends Model
     ];
 
     protected $casts = [
-        'created_at' => 'datetime'
+        'created_at' => 'datetime',
+         'fee' => 'decimal:2',
+        'value' => 'decimal:2',
     ];
 }

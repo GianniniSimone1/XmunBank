@@ -131,9 +131,9 @@ class TransactionController extends Controller
         $request->validate([
             'iban' => 'required|string',
             'contoCorrenteId' => ['required','integer', 'min:0','max:4294967295', Rule::exists('conti_correntis', 'id')],
-            'value' => 'required|double|min:0',
+            'value' => 'required|numeric|min:0',
             'reason' => 'required|string|max:180',
-            'type' => [ 'required',  'integer',  Rule::exists('transaction_types', 'id'), ],
+            'type' => ['integer',  Rule::exists('transaction_types', 'id'), ],
         ]);
         $account = ContiCorrenti::find($request->contoCorrenteId);
         if(!$account->isOwnerOrJoint($request->user()->id))
@@ -143,8 +143,8 @@ class TransactionController extends Controller
             return response()->json([ 'message' =>'Fondi insufficienti' ], 401);
         $to = ContiCorrenti::find(ContiCorrentiController::getAccountIdByIban($request->iban));
         if(!$to)
-            return response()->json([ 'message' =>'Iban non esistente' ], 401);
-        $this->create($to->id, $request->contoCorrenteId, $request->value, $request->reason, $fee, $request->type);
+            return response()->json([ 'message' =>'Iban non esistente', ContiCorrentiController::getAccountIdByIban($request->iban)], 401);
+        $this->create($to->id, $request->contoCorrenteId, $request->value, $request->reason, $fee, $request->type? $request->type : 1);
         return response()->json([ 'status' => 'ok' ]);
     }
 }

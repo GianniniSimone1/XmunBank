@@ -1,5 +1,6 @@
 <?php
 
+use App\Models\TransactionType;
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
@@ -16,6 +17,10 @@ return new class extends Migration
             $table->timestamps();
             $table->string("type", 50);
         });
+
+        $tt = new TransactionType();
+        $tt->type = "Bonifico istantaneo";
+        $tt->save();
     }
 
     /**

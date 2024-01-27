@@ -32,5 +32,10 @@ var routes = [
     path: '/user/conto/:contoId',
     url: './pages/user/conto.html',
     name: 'newConto',
+  },
+  {
+    path: '/user/makeTransaction/:contoId',
+    url: './pages/user/makeTransaction.html',
+    name: 'makeTransaction',
   }
 ];

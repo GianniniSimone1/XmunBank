@@ -156,7 +156,7 @@ class ContiCorrentiController extends Controller
     }
     public static function getAccountIdByIban($iban)
     {
-        return (int) substr($iban, 5);
+        return (int)substr($iban, 9);
     }
 
     public function apiGetContoById(Request $request)
