@@ -15,4 +15,34 @@ L'obiettivo del progetto è quello di svillupare e dimostrare la sicurezza delle
 - **Mass Assignment:** L'assegnazione di massa si verifica quando un consumatore API include nelle proprie richieste più parametri di quelli previsti dall'applicazione.
 - **Business logic flaws:** Se un API non dispone di funzionalità di caricameno che non convalidano i payload codificati, l'attacante può caricare qualsiasi tipo di informazione codificata.
 
-## Come installare 
+## Come installare ed eseguire
+> [!IMPORTANT]
+> **E' necessario aver installato i seguenti requisiti:**
+> - APACHE
+> - PHP *con estensioni: **openssl**, **pdo**, **mbstring**, **tokenizer**, **xml**, **ctype** e **json***
+> - PhpMyAdmin
+> - Node.js e npm
+
+1. Modificare il file **/Laravel/.env**, cambiare i valori di seguito indicati per far si che Laravel possa connettersi al database:
+   ```
+   DB_HOST=
+   DB_PORT=
+   DB_DATABASE=
+   DB_USERNAME=
+   DB_PASSWORD=
+   ```
+
+1. Per poter eseguire il server Laravel, posizionarsi nella directory e dal cmd eseguire:
+   ```
+   php artisan migrate
+   php artisan serve
+   ```
+
+1. Per poter eseguire l'applicazione, posizionarsi nella directory e dal cmd eseguire:
+   ```
+   npm start
+   ```
+
+## Database
+Questa è lo schema del database utilizzato:
+![Schema database](/assets/sqlScheme.png)
