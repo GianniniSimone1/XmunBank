@@ -46,3 +46,15 @@ L'obiettivo del progetto è quello di svillupare e dimostrare la sicurezza delle
 ## Database
 Questa è lo schema del database utilizzato:
 ![Schema database](/assets/sqlScheme.png)
+
+## API Request
+Laravel utilizza un sistema di routing in cui possono essere definiti gli url per accedere alle interfacce API **/Laravel/routes/api.php**, speicificando quali metodi sono ammessi. Per ogni richiesta effettuata, essa viene verificata dapprima se l'url corrsiponde ad un indirizzo definito nel router e successivamente se il metodo della richiesta è valido.
+La richiesta passerà, dunque, attraverso un insieme di middelware, tra cui in particolare **CorsMiddleware**, **ThrottleRequestsMiddleware**, **VerifyCsrfTokenMiddleware**, **SanctumMiddleware**.
+<details>
+<summary>Che cos'è un middleware in Laravel</summary>
+In Laravel, un middleware è uno strato intermedio tra una richiesta HTTP in ingresso e il kernel dell'applicazione. Questo strato intermedio può eseguire azioni sulla richiesta in arrivo o sulla risposta in uscita, fornendo un meccanismo per modificare o interrompere il flusso di esecuzione dell'applicazione.
+Un middleware può essere utilizzato per eseguire varie operazioni, come l'autenticazione, l'autorizzazione, la gestione della cache, il logging, la manipolazione della richiesta o della risposta, e altro ancora. Laravel fornisce un sistema di middleware potente e flessibile che consente agli sviluppatori di personalizzare il comportamento dell'applicazione in vari punti del ciclo di vita della richiesta.
+</details>
+
+### Schema riassuntivo richieste APIs
+![Schema database](/assets/apiRequest.png)
