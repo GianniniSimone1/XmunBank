@@ -89,11 +89,10 @@ $$(document).on('page:init', '.page[data-name="dashboard"]', function (e) {
                         </div>
                     </swiper-slide>
                 `)
-
-                    $$('.joined, .owned').on('click', function() {
-                        var contoId = $$(this).data('id');
-                        app.views.main.router.navigate('/user/conto/' + contoId + '/');
-                    });
+                });
+                $$('.joined, .owned').on('click', function() {
+                    var contoId = $$(this).data('id');
+                    app.views.main.router.navigate('/user/conto/' + contoId + '/');
                 });
             }
         },
@@ -107,10 +106,12 @@ $$(document).on('page:init', '.page[data-name="dashboard"]', function (e) {
 
 $(document).on('submit', '#newContoForm', function (e) {
     e.preventDefault();
-    var formData = $(this).serializeArray();
     app.preloader.show();
-
-
+    var cointestatariValue = $('[name="cointestatari"]').val().trim();
+    if (cointestatariValue === '') {
+        $('[name="cointestatari"]').val('nessuno');
+    }
+    var formData = $(this).serializeArray();
     $.post({
         url: server +  apiUrl + '/accounts/',
         data: formData,

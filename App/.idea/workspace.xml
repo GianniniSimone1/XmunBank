@@ -5,20 +5,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="ac4bdad3-4498-40f8-b9ea-71ed9d666ebf" name="Changes" comment="Creato Register e comunicazione con login e csrf token con il server">
-      <change afterPath="$PROJECT_DIR$/www/pages/user/makeTransaction.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/www/css/custom.css" beforeDir="false" afterPath="$PROJECT_DIR$/www/css/custom.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/www/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/www/index.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/www/js/custom.js" beforeDir="false" afterPath="$PROJECT_DIR$/www/js/custom.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/www/js/routes.js" beforeDir="false" afterPath="$PROJECT_DIR$/www/js/routes.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/www/pages/user/conto.html" beforeDir="false" afterPath="$PROJECT_DIR$/www/pages/user/conto.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Laravel/app/Http/Controllers/AuthController.php" beforeDir="false" afterPath="$PROJECT_DIR$/../Laravel/app/Http/Controllers/AuthController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Laravel/app/Http/Controllers/ContiCorrentiController.php" beforeDir="false" afterPath="$PROJECT_DIR$/../Laravel/app/Http/Controllers/ContiCorrentiController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Laravel/app/Http/Controllers/TransactionController.php" beforeDir="false" afterPath="$PROJECT_DIR$/../Laravel/app/Http/Controllers/TransactionController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Laravel/app/Models/ContiCorrenti.php" beforeDir="false" afterPath="$PROJECT_DIR$/../Laravel/app/Models/ContiCorrenti.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Laravel/app/Models/Transaction.php" beforeDir="false" afterPath="$PROJECT_DIR$/../Laravel/app/Models/Transaction.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Laravel/database/migrations/2024_01_20_124310_create_transaction_types_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/../Laravel/database/migrations/2024_01_20_124310_create_transaction_types_table.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Laravel/routes/api.php" beforeDir="false" afterPath="$PROJECT_DIR$/../Laravel/routes/api.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Laravel/database/migrations/2014_10_12_000000_create_users_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/../Laravel/database/migrations/2014_10_12_000000_create_users_table.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Laravel/database/migrations/2024_01_19_154158_create_conti_correntis_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/../Laravel/database/migrations/2024_01_19_154158_create_conti_correntis_table.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -92,6 +81,7 @@
       <workItem from="1706188252938" duration="5657000" />
       <workItem from="1706208588350" duration="13467000" />
       <workItem from="1706368315338" duration="9009000" />
+      <workItem from="1706881813376" duration="1898000" />
     </task>
     <task id="LOCAL-00001" summary="Creata App e aggiunta pagina accedi">
       <option name="closed" value="true" />

@@ -1,5 +1,6 @@
 <?php
 
+use App\Models\ContiCorrenti;
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
@@ -17,6 +18,12 @@ return new class extends Migration
             $table->foreign('owner')->references('id')->on('users');
             $table->timestamps();
         });
+
+        $c = new ContiCorrenti([
+            'owner' => 1
+        ]);
+        $c->save();
+
     }
 
     /**
