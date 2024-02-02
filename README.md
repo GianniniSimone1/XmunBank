@@ -19,8 +19,8 @@ L'obiettivo del progetto è quello di svillupare e dimostrare la sicurezza delle
 > [!IMPORTANT]
 > **E' necessario aver installato i seguenti requisiti:**
 > - APACHE
-> - PHP *con estensioni: **openssl**, **pdo**, **mbstring**, **tokenizer**, **xml**, **ctype** e **json***
-> - PhpMyAdmin
+> - PHP >= 8.1 *con estensioni: **Ctype**, **cURL**, **DOM**, **Fileinfo**, **Filter**, **Hash**, **Mbstring**, **OpenSSL**, **PCRE**, **PDO**, **Session**, **Tokenizer**, **XML***
+> - MySQL
 > - Node.js e npm
 
 1. Modificare il file **/Laravel/.env**, cambiare i valori di seguito indicati per far si che Laravel possa connettersi al database:
